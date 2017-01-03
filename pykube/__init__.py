@@ -15,6 +15,7 @@ from .objects import (  # noqa
     Ingress,
     Job,
     Namespace,
+    ScheduledJob,
     Node,
     PetSet,
     Pod,

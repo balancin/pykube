@@ -172,6 +172,21 @@ class ResourceQuota(NamespacedAPIObject):
     endpoint = "resourcequotas"
     kind = "ResourceQuota"
 
+class ScheduledJob(NamespacedAPIObject, ScalableMixin):
+
+    version = "batch/v2alpha1"
+    endpoint = "scheduledjobs"
+    kind = "ScheduledJob"
+    scalable_attr = "parallelism"
+
+    @property
+    def parallelism(self):
+        return self.obj["spec"]["parallelism"]
+
+    @parallelism.setter
+    def parallelism(self, value):
+        self.obj["spec"]["parallelism"] = value
+
 
 class ServiceAccount(NamespacedAPIObject):
 
